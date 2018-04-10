@@ -41,6 +41,8 @@ COPY dockerd-entrypoint.sh /usr/local/bin/
 
 ENV PATH="/usr/local/bin:$PATH"
 
+ENV LANG="en_US.utf8"
+
 CMD ["python3"]
 
 ENTRYPOINT ["dockerd-entrypoint.sh"]
