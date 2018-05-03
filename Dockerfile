@@ -14,16 +14,21 @@
 
 FROM amazonlinux:latest
 
-RUN yum install python34 python34-devel python34-pip python34-setuptools python34-virtualenv postgresql94-devel -y \
+RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash - \
+    && yum install python34 python34-devel python34-pip python34-setuptools python34-virtualenv nodejs bzip2 fontconfig -y \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && pip-3.4 install awscli --no-cache-dir \
+    && cd /opt \
+    && npm install -g npm@latest \
+    && npm install phantomjs-prebuilt \
     && cd /usr/local/bin \
     && ln -s /usr/bin/pydoc3 pydoc \
     && ln -s /usr/bin/python3 python \
     && ln -s /usr/bin/python3-config python-config \
     && ln -s /usr/bin/pip-3.4 pip \
     && ln -s /usr/bin/virtualenv-3.4 virtualenv \
+    && ln -s /opt/node_modules/.bin/phantomjs phantomjs \
     && set -x && \
     # Install docker-compose
     # https://docs.docker.com/compose/install/
