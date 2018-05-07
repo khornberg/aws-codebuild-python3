@@ -15,7 +15,7 @@
 FROM amazonlinux:latest
 
 RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash - \
-    && yum install python34 python34-devel python34-pip python34-setuptools python34-virtualenv nodejs bzip2 fontconfig -y \
+    && yum install python34 python34-devel python34-pip python34-setuptools python34-virtualenv nodejs bzip2 fontconfig openssh-clients git -y \
     && yum clean all \
     && rm -rf /var/cache/yum \
     && pip-3.4 install awscli --no-cache-dir \
