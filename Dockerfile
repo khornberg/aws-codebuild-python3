@@ -12,7 +12,7 @@
 
 # Modified
 
-FROM amazonlinux:latest
+FROM amazonlinux:latest@sha256:9ee13e494b762db41b9db92a200f6784b78da5ac3b0f974fb1c38feb7f636474
 
 RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash - \
     && yum install python34 python34-devel python34-pip python34-setuptools python34-virtualenv nodejs bzip2 fontconfig openssh-clients git -y \
